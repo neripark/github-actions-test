@@ -12,6 +12,7 @@ git config pull.rebase false
 echo '*** merge to feature/dummy ***'
 git pull
 git checkout feature/dummy
+git log -n 1
 git pull
 git merge master
 git push
