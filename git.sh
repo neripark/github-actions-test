@@ -4,5 +4,5 @@ git fetch
 echo '*** git branch ***'
 git branch
 
-echo '## git push origin origin/master:maint ##'
-git push origin origin/master:feature/dummy
+echo '## git push origin/master:origin/feature/dummy ##'
+git push origin origin/master:origin/feature/dummy
