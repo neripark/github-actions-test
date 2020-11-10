@@ -1,2 +1,5 @@
-git checkout feature/dummy
-git merge master
+echo '*** git fetch ***'
+git fetch
+
+echo '## git push origin origin/master:maint ##'
+git push origin origin/master:feature/dummy
