@@ -27,12 +27,12 @@ git branch
 echo '*** git pull ***'
 git pull
 
-echo '*** git merge master ***'
-git merge --allow-unrelated-histories master
-
 echo '*** git config user.email, user.name ***'
 git config --global user.email "neripark_github@example.com"
 git config --global user.name "neripark CI"
+
+echo '*** git merge --allow-unrelated-histories master ***'
+git merge --allow-unrelated-histories master
 
 echo '*** git push ***'
 git push
