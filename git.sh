@@ -28,7 +28,7 @@ echo '*** git pull ***'
 git pull
 
 echo '*** git merge master ***'
-git merge master
+git merge --allow-unrelated-histories master
 
 echo '*** git push ***'
 git push
