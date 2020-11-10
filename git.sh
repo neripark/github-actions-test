@@ -4,6 +4,9 @@ git fetch
 echo '*** git branch ***'
 git branch
 
+echo '*** git log ***'
+git log -n 1
+
 echo '## git config pull.rebase false ##'
 git config pull.rebase false
 
@@ -12,6 +15,8 @@ git config pull.rebase false
 echo '*** merge to feature/dummy ***'
 git pull
 git checkout feature/dummy
+
+echo '*** git log ***'
 git log -n 1
 git pull
 git merge master
