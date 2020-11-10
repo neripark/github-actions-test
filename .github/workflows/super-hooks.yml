@@ -3,7 +3,7 @@ name: Super-hooks
 # Run this workflow every time a new commit pushed to your repository
 on:
   push:
-    branches: [ master, develop_pod/ph2_spa_published_simple_pj ]
+    branches: [ master ]
 
 jobs:
   # Set the job key. The key is displayed as the job name
@@ -16,8 +16,9 @@ jobs:
 
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - run: sh index.sh
 
       # Runs the Super-Linter action
       # - name: Run Super-Linter
