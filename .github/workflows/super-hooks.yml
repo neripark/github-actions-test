@@ -5,21 +5,46 @@ on:
   push:
     branches: [ master ]
 
-jobs:
-  # Set the job key. The key is displayed as the job name
-  # when a job name is not provided
-  super-test:
-    # Name the Job
-    name: execute a test script
-    # Set the type of machine to run on
-    runs-on: ubuntu-latest
+# jobs:
+#   # Set the job key. The key is displayed as the job name
+#   # when a job name is not provided
+#   super-test:
+#     # Name the Job
+#     name: execute a test script
+#     # Set the type of machine to run on
+#     runs-on: ubuntu-latest
 
+    # steps:
+    #   # Checks out a copy of your repository on the ubuntu-latest machine
+    #   - name: Checkout code
+    #     uses: actions/checkout@master
+    #   - name: Merge development -> staging
+    #     uses: devmasx/merge-branch@v1.3.1
+    #     with:
+    #       type: now
+    #       from_branch: development
+    #       target_branch: staging
+
+jobs:
+  sync-branch:
+    runs-on: ubuntu-latest
     steps:
-      # Checks out a copy of your repository on the ubuntu-latest machine
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - run: sh index.sh
-      - run: sh git.sh
+      - uses: actions/checkout@master
+
+      # - name: Merge development -> staging
+      - name: Merge master -> feature/dummy
+        uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: master
+          target_branch: feature/dummy
+          github_token: ${{ github.token }}
+
+      # - name: Manipulate branches
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   # run: sh index.sh
+      #   run: sh git.sh
 
       # Runs the Super-Linter action
       # - name: Run Super-Linter
