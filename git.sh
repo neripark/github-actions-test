@@ -1,8 +1,14 @@
 echo '*** git fetch ***'
 git fetch
 
-# echo '*** git branch ***'
-# git branch
+echo '*** git checkout master ***'
+git checkout master
+
+echo '*** git branch ***'
+git branch
+
+echo '*** git pull ***'
+git pull
 
 # echo '*** git log ***'
 # git log -n 1
@@ -24,8 +30,8 @@ git checkout feature/dummy
 # echo '*** git branch ***'
 # git branch
 
-echo '*** git pull origin master ***'
-git pull origin master
+echo '*** git merge master ***'
+git merge master
 
 # echo '*** git config user.email, user.name ***'
 # git config --global user.email "neripark_github@example.com"
