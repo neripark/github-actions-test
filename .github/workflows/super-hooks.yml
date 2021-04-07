@@ -21,7 +21,7 @@ jobs:
       - name: Manipulate branches
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: sh index.sh
+        # run: sh index.sh
         run: sh git.sh
 
       # Runs the Super-Linter action
