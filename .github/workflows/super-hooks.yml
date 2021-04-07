@@ -18,8 +18,10 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: sh index.sh
-      - run: sh git.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: sh index.sh
+        run: sh git.sh
 
       # Runs the Super-Linter action
       # - name: Run Super-Linter
