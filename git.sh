@@ -40,5 +40,8 @@ git merge master
 # echo '*** git merge --allow-unrelated-histories master ***'
 # git merge --allow-unrelated-histories master
 
+echo '*** git log ***'
+git log -n 1
+
 echo '*** git push ***'
 git push
