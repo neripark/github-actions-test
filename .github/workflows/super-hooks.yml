@@ -17,12 +17,19 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Manipulate branches
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # run: sh index.sh
-        run: sh git.sh
+        uses: actions/checkout@master
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: development
+          target_branch: staging
+
+      # - name: Manipulate branches
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   # run: sh index.sh
+      #   run: sh git.sh
 
       # Runs the Super-Linter action
       # - name: Run Super-Linter
