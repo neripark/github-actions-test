@@ -26,3 +26,9 @@ jobs:
 
       - name: Echo branch list
         run: git fetch && git branch -a
+
+      - name: Checkout verification branch
+        run: git checkout -b verification-${{ github.event.inputs.deploytest }}
+
+      - name: Echo branch list (2)
+        run: git branch -a
