@@ -1,0 +1,24 @@
+name: force-push-test
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploytest:
+        description: デプロイ環境選択テスト
+        type: choice
+        required: true
+        options:
+          - dev1
+          - dev2
+          - dev3
+
+jobs:
+  trigger-deploy:
+    name: trigger-deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Echo Deploy Target Environment
+        run: echo ${{ github.event.inputs.deploytest }}
