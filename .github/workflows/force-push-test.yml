@@ -32,3 +32,6 @@ jobs:
 
       - name: Echo branch list (2)
         run: git branch -a
+
+      - name: Force push
+        run: git push origin -f
