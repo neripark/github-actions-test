@@ -34,4 +34,4 @@ jobs:
         run: git branch -a
 
       - name: upstream push
-        run: git push --set-upstream origin verification-${{ github.event.inputs.deploytest }}
+        run: git push --set-upstream origin verification-${{ github.event.inputs.deploytest }} -f
