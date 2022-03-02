@@ -22,3 +22,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Echo Deploy Target Environment
         run: echo ${{ github.event.inputs.deploytest }}
+      - name: Echo branch list
+        run: git branch -a
