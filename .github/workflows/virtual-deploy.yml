@@ -1,0 +1,14 @@
+name: virtual-deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo git log
+        run: git log -n 1 | cat
+      - name: echo fixed message
+        run: echo "deployed!"
