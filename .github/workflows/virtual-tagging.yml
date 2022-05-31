@@ -24,7 +24,7 @@ jobs:
         run: |
           TAG_NAME=release-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)
           git tag $TAG_NAME
-          git push origin $(cat TAG_NAME)
+          git push origin $TAG_NAME
 
       # - name: Set current date
       #   # id: current_date
