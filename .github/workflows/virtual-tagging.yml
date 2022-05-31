@@ -17,10 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create tag
-        run: |
-          echo "release-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
-          git tag $(cat TAG_NAME)
-          git push origin $(cat TAG_NAME)
+        # run: |
+        #   echo "release-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)" > TAG_NAME
+        #   git tag $(cat TAG_NAME)
+        #   git push origin $(cat TAG_NAME)
         run: |
           TAG_NAME=release-$(TZ=Asia/Tokyo date +%Y%m%d-%H%M%S)
           git tag $TAG_NAME
