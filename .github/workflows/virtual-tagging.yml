@@ -4,7 +4,7 @@ name: Create Release Version Tag
 on:
   workflow_run:
     workflows:
-      - virtual-deploy-test
+      - virtual deploy test
     # branches:
     #   - main
     types: 

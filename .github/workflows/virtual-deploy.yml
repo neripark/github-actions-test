@@ -1,4 +1,4 @@
-name: virtual-deploy-test
+name: virtual deploy test
 
 on:
   push:
