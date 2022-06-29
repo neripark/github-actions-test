@@ -1,0 +1,16 @@
+name: Lint
+
+# virtual-deploy が正常終了したら実行する
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Lint
+        run: npm run format:check
