@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: 'Merge'
         # commit message 指定できそうなのでよさそう
-        uses: "pascalgn/automerge-action@v1.3.0"
+        uses: "pascalgn/automerge-action@v0.15.3"
         if: steps.waitforstatuschecks.outputs.status == 'success'
         # run: echo success waiting!!!!!!
         env:
