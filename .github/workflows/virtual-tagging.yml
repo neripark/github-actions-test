@@ -11,7 +11,7 @@ on:
       - completed
 
 jobs:
-  build:
+  virtual-tagging:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
