@@ -37,9 +37,12 @@ jobs:
       - name: debug
         run: echo ${{ steps.waitforstatuschecks.outputs.status }}
       - name: Merge
-        # commit message 指定できそうなのでよさそう
-        uses: "pascalgn/automerge-action@v0.15.3"
-        if: steps.waitforstatuschecks.outputs.status == 'success'
-        # run: echo success waiting!!!!!!
+        run: gh pr merge --auto --merge "$PR_URL"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        # uses: "pascalgn/automerge-action@v0.15.3"
+        # if: steps.waitforstatuschecks.outputs.status == 'success'
+        # # run: echo success waiting!!!!!!
+        # env:
+        #   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
