@@ -39,4 +39,3 @@ jobs:
         # run: echo success waiting!!!!!!
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          LABELS: automerge
