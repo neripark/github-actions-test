@@ -32,7 +32,9 @@ jobs:
           # checkInterval: 13 # デフォルトで10なので書かなくてよさそう
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: 'Merge'
+      - name: debug
+        run: echo ${{ steps.waitforstatuschecks.outputs.status }}
+      - name: Merge
         # commit message 指定できそうなのでよさそう
         uses: "pascalgn/automerge-action@v0.15.3"
         if: steps.waitforstatuschecks.outputs.status == 'success'
