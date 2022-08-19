@@ -7,8 +7,8 @@ on:
         type: choice
         required: true
         options:
-          - true
-          - false
+          - option1
+          - option2
 
 jobs:
   check_if_behavior:
@@ -21,7 +21,7 @@ jobs:
         id: hoge
         run: |
           [[ 
-            ${{ github.event.inputs.trueorfalse }} == true
+            ${{ github.event.inputs.trueorfalse }} == "option1"
           ]] && DO_AUTO_MERGE=true || DO_AUTO_MERGE=false
           echo DO_AUTO_MERGE: $DO_AUTO_MERGE # デバッグ用
           echo "::set-output name=doAutoMerge::$DO_AUTO_MERGE";
