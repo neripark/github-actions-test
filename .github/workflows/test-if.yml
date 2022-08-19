@@ -1,0 +1,37 @@
+name: Wait Status Check
+on:
+  workflow_dispatch:
+    inputs:
+      trueorfalse:
+        description: テスト選択肢
+        type: choice
+        required: true
+        options:
+          - true
+          - false
+
+jobs:
+  check_if_behavior:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo input value
+        run: echo ${{ github.event.inputs.trueorfalse }}
+
+      - name: if test
+        id: hoge
+        run: |
+          [[ 
+            ${{ github.event.inputs.trueorfalse }} == true
+          ]] && DO_AUTO_MERGE=true || DO_AUTO_MERGE=false
+          echo DO_AUTO_MERGE: $DO_AUTO_MERGE # デバッグ用
+          echo "::set-output name=doAutoMerge::$DO_AUTO_MERGE";
+
+      - name: Debug `doAutoMerge`
+        run: echo ${{ steps.hoge.outputs.doAutoMerge }}
+
+      - name: test step when true
+        if: ${{ steps.hoge.outputs.doAutoMerge == true }}
+        run: echo "true と判断されました！"
+      - name: test step when false
+        if: ${{ steps.hoge.outputs.doAutoMerge == false }}
+        run: echo "false と判断されました！"
