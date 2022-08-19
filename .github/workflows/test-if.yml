@@ -30,8 +30,8 @@ jobs:
         run: echo ${{ steps.hoge.outputs.doAutoMerge }}
 
       - name: test step when true
-        if: ${{ steps.hoge.outputs.doAutoMerge == true }}
+        if: ${{ steps.hoge.outputs.doAutoMerge == "true" }}
         run: echo "true と判断されました！"
       - name: test step when false
-        if: ${{ steps.hoge.outputs.doAutoMerge == false }}
+        if: ${{ steps.hoge.outputs.doAutoMerge == "false" }}
         run: echo "false と判断されました！"
