@@ -1,4 +1,4 @@
-name: Wait Status Check
+name: If Test
 on:
   workflow_dispatch:
     inputs:
